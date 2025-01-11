@@ -1,6 +1,8 @@
 # Express App Template
 
-This is a simple Express.js application template designed for building RESTful APIs with a modular structure. The project includes services, middleware, validation, and configuration management to provide a solid foundation for creating scalable and maintainable express applications.
+This is a simple Express.js application template designed for building RESTful APIs with a modular structure. The project is currently using MongoDB as the database and Mongoose as the ODM (Object Data Modeling) library for interacting with MongoDB. This template includes services, middleware, validation, and configuration management to provide a solid foundation for creating scalable and maintainable Express applications.
+
+The architecture is heavily inspired by NestJS, with a focus on modularity and separation of concerns. It is built using ESM (ECMAScript Modules) for modern JavaScript imports and exports, providing a cleaner and more consistent way to manage dependencies and organize the application.
 
 ### ⚠️ **Disclaimer**
 
@@ -16,7 +18,7 @@ This express application template currently includes the following key features:
 - **Service Registry**: Services such as UserService and HelperService are instantiated and registered centrally in the serviceRegistery.js file. This promotes a clean and maintainable approach to handling dependencies across the application. Services are injected where needed, reducing coupling between modules.
 - **Separation of Concerns:**: The project follows the principle of separation of concerns by clearly dividing responsibilities between controllers, services, models, and utilities. Controllers are responsible for handling HTTP requests, while services contain business logic. Models represent the database schema, and utilities provide reusable helper functions.
 - **Object Oriented Programming**: The project follows an Object-Oriented Programming approach by utilizing service classes such as UserService. Each service is responsible for performing a specific set of tasks
-- **User Management**: Manage admin users and their roles.
+- **Code Quality & Formatting:**: The project uses ESLint for linting and Prettier for automatic code formatting, ensuring consistent style, early detection of issues, and improved readability across the codebase.
 
 These features have been implemented with scalability and maintainability in mind. The system is designed to be **100% scalable**, with the ability to grow over time.
 
