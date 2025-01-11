@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Express App Template in Development Mode",
+      "type": "npm",
+      "script": "dev",
+      "detail": "Starts the Express App Template in Development Mode",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Express App Template in Production Mode",
+      "type": "npm",
+      "script": "start",
+      "detail": "Starts the Express App Template in Production Mode",
+      "problemMatcher": []
+    }
+  ]
+}

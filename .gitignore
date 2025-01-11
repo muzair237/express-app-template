@@ -1,0 +1,55 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env-cmdrc.json
+.env.*
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Directory for instrumented code
+coverage/
+
+# nyc test coverage
+.nyc_output/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+
+# JetBrains IDE settings
+.idea/
+
+# SASS/SCSS cache
+.sass-cache/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Tye files
+.tye/
+
+# Ignore package-lock.json
+package-lock.json

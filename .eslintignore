@@ -1,0 +1,30 @@
+# Node.js dependencies
+node_modules/
+
+# Log files
+*.log
+
+# ESLint cache
+.eslintcache
+
+# Coverage reports
+coverage/
+
+# IDE configurations
+.idea/
+.vscode/
+
+# Build directories
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.swp
+
+# TypeScript build info files
+*.tsbuildinfo
+
+# Operating system files
+.DS_Store
+Thumbs.db
