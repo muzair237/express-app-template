@@ -94,7 +94,7 @@ Alternatively, you can run the application directly from the terminal.
 npm run dev
 ```
 
-### 2. Access the application.
+### 3. Access the application.
 
 Once the application is running, open your browser and go to:
 
