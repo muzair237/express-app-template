@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "env-cmd -e production -f .env-cmdrc.json node src/main.js",
-    "dev": "env-cmd -e development -f .env-cmdrc.json nodemon --watch src --ext js,ts src/main.js",
+    "start": "env-cmd -e production node src/main.js",
+    "dev": "env-cmd -e development nodemon src/main.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
     "format": "prettier --write \"**/*.{js,json,md}\""
   },

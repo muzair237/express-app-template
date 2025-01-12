@@ -2,13 +2,11 @@
 
 This is a simple Express.js application template designed for building RESTful APIs with a modular structure. The project is currently using MongoDB as the database and Mongoose as the ODM (Object Data Modeling) library for interacting with MongoDB. This template includes services, middleware, validation, and configuration management to provide a solid foundation for creating scalable and maintainable Express applications.
 
-The architecture is heavily inspired by NestJS, with a focus on modularity and separation of concerns. It is built using ESM (ECMAScript Modules) for modern JavaScript imports and exports, providing a cleaner and more consistent way to manage dependencies and organize the application.
+The architecture is inspired by NestJS, with a focus on modularity and separation of concerns. It is built using ESM (ECMAScript Modules) for modern JavaScript imports and exports, providing a cleaner and more consistent way to manage dependencies and organize the application.
 
 ### ⚠️ **Disclaimer**
 
-This project is a basic template that can be further improved and extended to suit your needs. If you have any suggestions or improvements, please feel free to reach out to me.
-1.**LinkedIn**: [Muhammad Uzair](https://www.linkedin.com/in/muhammaduzair12/)
-2. **Email** uzair.ejaz2001@gmail.com
+This project is a basic template that can be further improved and extended to suit your needs. If you have any suggestions or improvements, please feel free to reach out to me. 1.**LinkedIn**: [Muhammad Uzair](https://www.linkedin.com/in/muhammaduzair12/) 2. **Email** uzair.ejaz2001@gmail.com
 
 ## Features
 
@@ -32,13 +30,13 @@ src/
 │   ├── envVariables.js       # Environment variables
 │   └── expressConfig.js      # Express app configuration
 ├── features/
+│   └── features.controller.js # Central controller registry
+│   └── features.model.js      # Central model registry
 │   └── user/
+│       ├── user.model.js      # Model for user
 │       ├── user.controller.js # Controller for user-related routes
 │       ├── user.service.js    # Service handling business logic for users
 │       ├── validators/        # Input validation logic
-│       └── user.model.js      # Mongoose schema for User model
-├── models/
-│   ├── user.model.js         # User Mongoose model
 ├── middlewares/
 │   ├── validate.js           # Middleware for validating request bodies
 │   └── tryCatch.js           # Middleware for error handling
@@ -46,11 +44,11 @@ src/
 ├── utils/
 │   └── helpers.js            # Utility functions
 ├── app.controller.js         # Registering all routes
-├── app.model.js              # Collection of all models (including user model)
-├── appService.js             # Root service, containing health API business logic
+├── app.service.js             # Root service, containing general API's
 ├── main.js                   # Application entry point
 
 ```
+
 ## Installation
 
 1. ### Clone this repository.
@@ -82,18 +80,26 @@ npm install
 To start the application, follow these steps:
 
 ### 1. Open the application in VS Code.
-   If you're using VS Code, you can easily run the app by using the tasks feature. 
 
-   - Press `F1` and select **Tasks: Run Task**.
-   - Choose the appropriate mode (either **development** or **simple**).
+If you're using VS Code, you can easily run the app by using the tasks feature.
+
+- Press `F1` and select **Tasks: Run Task**.
+- Choose the appropriate mode (either **development** or **simple**).
 
 ### 2. Run the application.
-   
-   Alternatively, you can run the application directly from the terminal.
 
-   ```bash
-   npm run dev
-   ```
+Alternatively, you can run the application directly from the terminal.
 
+```bash
+npm run dev
+```
+
+### 2. Access the application.
+
+Once the application is running, open your browser and go to:
+
+```bash
+http://localhost:4005
+```
 
 Thank you for checking out the project.

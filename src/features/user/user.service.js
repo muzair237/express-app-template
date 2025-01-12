@@ -1,5 +1,5 @@
 import { HttpStatus } from '../../utils/constants/httpStatus.js';
-import { userModel } from '../../app.model.js';
+import { userModel } from '../features.model.js';
 import { helperService } from '../../serviceRegistery.js';
 
 class UserService {

@@ -1,6 +1,6 @@
 class AppService {
   getHello(_, res) {
-    res.send('Hello from Express!');
+    res.send('Hello from Express App Template!');
   }
 }
 
