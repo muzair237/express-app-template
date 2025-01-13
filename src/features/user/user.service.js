@@ -1,6 +1,7 @@
-import { HttpStatus } from '../../utils/constants/httpStatus.js';
 import { userModel } from '../features.model.js';
 import { helperService } from '../../serviceRegistery.js';
+import { HttpStatus } from '../../utils/constants/httpStatus.js';
+import HttpException from '../../utils/errorHandler.js';
 
 class UserService {
   constructor() {
@@ -8,72 +9,57 @@ class UserService {
     this.helpers = helperService;
   }
 
-  createUser = async (req, res) => {
-    const { name, email, password } = req.body;
-
+  async createUser({ name, email, password }) {
     const existingUser = await this.USER.findOne({ email });
     if (existingUser) {
-      return res
-        .status(HttpStatus.BAD_REQUEST)
-        .json({ success: false, message: `A user with the email '${email}' already exists` });
+      throw new HttpException({ message: `A user with the email '${email}' already exists` }, HttpStatus.CONFLICT);
     }
 
     const hashPassword = this.helpers.hashPassword(password);
-
     await this.USER.create({ name, email, password: hashPassword });
 
-    return res.status(HttpStatus.CREATED).json({ success: true, message: 'User created successfully!' });
-  };
+    return { message: 'User created successfully!' };
+  }
 
-  getUserById = async (req, res) => {
-    const { id } = req.params;
-
+  async getUserById(id) {
     const user = await this.USER.findById(id).select('-password');
     if (!user) {
-      return res.status(HttpStatus.NOT_FOUND).json({ success: false, message: `User with ID '${id}' not found` });
+      throw new HttpException({ message: `User with ID '${id}' not found` }, HttpStatus.NOT_FOUND);
     }
+    return user;
+  }
 
-    return res.status(HttpStatus.OK).json({ success: true, data: user });
-  };
-
-  updateUser = async (req, res) => {
-    const { id } = req.params;
-    const { name, email, password } = req.body;
-
+  async updateUser(id, updates) {
+    const { name, email, password } = updates;
     const user = await this.USER.findById(id);
     if (!user) {
-      return res.status(HttpStatus.NOT_FOUND).json({ success: false, message: `User with ID '${id}' not found` });
+      throw new HttpException({ message: `User with ID '${id}' not found` }, HttpStatus.NOT_FOUND);
     }
 
-    if (name) user.name = name;
     if (email) {
       const existingUser = await this.USER.findOne({ email });
       if (existingUser && existingUser._id.toString() !== id) {
-        return res
-          .status(HttpStatus.BAD_REQUEST)
-          .json({ success: false, message: `A user with the email '${email}' already exists` });
+        throw new HttpException({ message: `A user with the email '${email}' already exists` }, HttpStatus.CONFLICT);
       }
-      user.email = email;
     }
+
+    if (name) user.name = name;
+    if (email) user.email = email;
     if (password) user.password = this.helpers.hashPassword(password);
 
     await user.save();
+    return { message: 'User updated successfully!' };
+  }
 
-    return res.status(HttpStatus.OK).json({ success: true, message: 'User updated successfully!' });
-  };
-
-  deleteUser = async (req, res) => {
-    const { id } = req.params;
-
+  async deleteUser(id) {
     const user = await this.USER.findById(id);
     if (!user) {
-      return res.status(HttpStatus.NOT_FOUND).json({ success: false, message: `User with ID '${id}' not found` });
+      throw new HttpException({ message: `User with ID '${id}' not found` }, HttpStatus.NOT_FOUND);
     }
-
     await this.USER.findByIdAndDelete(id);
 
-    return res.status(HttpStatus.OK).json({ success: true, message: 'User deleted successfully!' });
-  };
+    return { message: 'User deleted successfully!' };
+  }
 }
 
 export default UserService;
