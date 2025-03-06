@@ -1,11 +1,13 @@
 import { userModel } from '../features.model.js';
-import { helperService } from '../../serviceRegistery.js';
 import { HttpStatus } from '../../utils/constants/httpStatus.js';
 import HttpException from '../../utils/errorHandler.js';
 
 class UserService {
   constructor() {
     this.USER = userModel;
+  }
+
+  injectDependencies({ helperService }) {
     this.helpers = helperService;
   }
 

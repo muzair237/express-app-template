@@ -2,7 +2,7 @@ import expressConfig from './config/expressConfig.js';
 import { PORT } from './config/envVariables.js';
 import connectDB from './config/dbConfig.js';
 
-async function bootstrap() {
+(async function bootstrap() {
   expressConfig.configureExpress();
 
   const app = expressConfig.getApp();
@@ -12,6 +12,4 @@ async function bootstrap() {
   app.listen(PORT, () => {
     console.info(`Server started on port ${PORT}`);
   });
-}
-
-bootstrap();
+})();
