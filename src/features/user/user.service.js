@@ -28,7 +28,7 @@ class UserService {
     if (!user) {
       throw new HttpException({ message: `User with ID '${id}' not found` }, HttpStatus.NOT_FOUND);
     }
-    return user;
+    return { message: 'User details retrieved successfully', data: user };
   }
 
   async updateUser(id, updates) {

@@ -1,6 +1,6 @@
-import expressConfig from './config/expressConfig.js';
-import { PORT } from './config/envVariables.js';
-import connectDB from './config/dbConfig.js';
+import expressConfig from './config/express.config.js';
+import { PORT } from './config/envVariables.config.js';
+import connectDB from './config/db.config.js';
 
 (async function bootstrap() {
   expressConfig.configureExpress();

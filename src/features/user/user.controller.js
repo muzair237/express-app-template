@@ -1,9 +1,7 @@
 import express from 'express';
 import { userService } from '../../serviceRegistery.js';
-import validateBody from '../../middlewares/validate.js';
-import tryCatch from '../../middlewares/tryCatch.js';
-import createUserValidator from './validators/createUser.validator.js';
-import updateUserValidator from './validators/updateUser.validator.js';
+import { tryCatch, validateBody } from '../../middlewares/index.js';
+import { createUserValidator, updateUserValidator } from './validators/index.js';
 
 const router = express.Router();
 
@@ -19,8 +17,8 @@ router.post(
 router.get(
   '/get-user/:id',
   tryCatch(async (req, res) => {
-    const user = await userService.getUserById(req.params.id);
-    res.status(200).json({ success: true, data: user });
+    const result = await userService.getUserById(req.params.id);
+    res.status(200).json({ success: true, ...result });
   }),
 );
 

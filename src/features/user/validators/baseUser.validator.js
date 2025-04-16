@@ -14,12 +14,17 @@ const baseUserValidator = Joi.object({
     'string.email': 'Email must be a valid email address',
   }),
 
-  password: Joi.string().trim().min(8).max(100).messages({
-    'string.base': 'Password must be a string',
-    'string.empty': 'Password is required',
-    'string.min': 'Password must be at least 8 characters long',
-    'string.max': 'Password cannot exceed 100 characters',
-  }),
+  password: Joi.string()
+    .min(8)
+    .pattern(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/)
+    .required()
+    .messages({
+      'string.base': 'Password must be a string.',
+      'string.empty': 'Password cannot be empty.',
+      'string.min': 'Password must be at least 8 characters long.',
+      'string.pattern.base': 'Password must include uppercase, lowercase, a number, and a special character.',
+      'any.required': 'Password is required.',
+    }),
 });
 
 export default baseUserValidator;

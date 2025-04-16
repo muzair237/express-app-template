@@ -1,12 +1,15 @@
 # Express App Template
 
-This is a simple Express.js application template designed for building RESTful APIs with a modular structure. The project is currently using MongoDB as the database and Mongoose as the ODM (Object Data Modeling) library for interacting with MongoDB. This template includes services, middleware, validation, and configuration management to provide a solid foundation for creating scalable and maintainable Express applications.
+This is a simple Monolithic Express.js application template designed for building RESTful APIs with a modular structure. The project is currently using MongoDB as the database and Mongoose as the ODM (Object Data Modeling) library for interacting with MongoDB. This template includes services, middleware, validation, and configuration management to provide a solid foundation for creating scalable and maintainable Express applications.
 
 The architecture is inspired by NestJS, with a focus on modularity and separation of concerns. It is built using ESM (ECMAScript Modules) for modern JavaScript imports and exports, providing a cleaner and more consistent way to manage dependencies and organize the application.
 
 ### ⚠️ **Disclaimer**
 
-This project is a basic template that can be further improved and extended to suit your needs. If you have any suggestions or improvements, please feel free to reach out to me. 1.**LinkedIn**: [Muhammad Uzair](https://www.linkedin.com/in/muhammaduzair12/) 2. **Email** uzair.ejaz2001@gmail.com
+This project is a basic template that can be further improved and extended to suit your needs. If you have any suggestions or improvements, please feel free to reach out to me:
+
+1. **LinkedIn**: [Muhammad Uzair](https://www.linkedin.com/in/muhammaduzair12/)
+2. **Email**: uzair.ejaz2001@gmail.com
 
 ## Features
 
@@ -33,7 +36,8 @@ src/
 │   └── features.controller.js # Central controller registry
 │   └── features.model.js      # Central model registry
 │   └── user/
-│       ├── user.model.js      # Model for user
+│       └── models/
+│           └── user.model.js
 │       ├── user.controller.js # Controller for user-related routes
 │       ├── user.service.js    # Service handling business logic for users
 │       ├── validators/        # Input validation logic

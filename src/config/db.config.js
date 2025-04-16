@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { MONGO_STRING } from './envVariables.js';
+import { MONGO_STRING } from './envVariables.config.js';
 
 const connectDB = async () => {
   try {
