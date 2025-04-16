@@ -29,9 +29,9 @@ These features have been implemented with scalability and maintainability in min
 
 src/
 ├── config/
-│   ├── dbConfig.js           # Database connection setup
-│   ├── envVariables.js       # Environment variables
-│   └── expressConfig.js      # Express app configuration
+│   ├── db.config.js           # Database connection setup
+│   ├── envVariables.config.js # Environment variables
+│   └── express.config.js      # Express app configuration
 ├── features/
 │   └── features.controller.js # Central controller registry
 │   └── features.model.js      # Central model registry
@@ -42,8 +42,8 @@ src/
 │       ├── user.service.js    # Service handling business logic for users
 │       ├── validators/        # Input validation logic
 ├── middlewares/
-│   ├── validate.js           # Middleware for validating request bodies
-│   └── tryCatch.js           # Middleware for error handling
+│   ├── validate.middleware.js # Middleware for validating request bodies
+│   └── tryCatch.middleware.js # Middleware for error handling
 ├── serviceRegistery.js       # Central service registry
 ├── utils/
 │   └── helpers.js            # Utility functions
