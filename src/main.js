@@ -1,9 +1,11 @@
-import expressConfig from './config/express.config.js';
+import ExpressConfig from './config/express.config.js';
 import { PORT } from './config/envVariables.config.js';
 import connectDB from './config/db.config.js';
 
 (async function bootstrap() {
-  expressConfig.configureExpress();
+  const expressConfig = ExpressConfig.getInstance();
+
+  await expressConfig.configureExpress();
 
   const app = expressConfig.getApp();
 

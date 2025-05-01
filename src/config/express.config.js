@@ -1,3 +1,4 @@
+// express.config.js
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -6,7 +7,13 @@ import appRoutes from '../app.controller.js';
 
 class ExpressConfig {
   constructor() {
+    if (ExpressConfig._instance) {
+      return ExpressConfig._instance;
+    }
+
     this.app = express();
+
+    ExpressConfig._instance = this;
   }
 
   configureMiddleware() {
@@ -29,6 +36,13 @@ class ExpressConfig {
   getApp() {
     return this.app;
   }
+
+  static getInstance() {
+    if (!ExpressConfig._instance) {
+      ExpressConfig._instance = new ExpressConfig();
+    }
+    return ExpressConfig._instance;
+  }
 }
 
-export default new ExpressConfig();
+export default ExpressConfig;

@@ -50,6 +50,3 @@ ehthumbs.db
 
 # Tye files
 .tye/
-
-# Ignore package-lock.json
-package-lock.json
